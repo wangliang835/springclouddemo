@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: springcloud-gateway
+  mvc:
+    servlet:
+      load-on-startup: 1
+  servlet:
+    multipart:
+      max-request-size: 100MB #最大请求大小
+      max-file-size: 100MB #最大文件大小
+  cloud:
+    gateway:
+      routes:
+        - id: firstroute
+          uri: lb://feign-consumer-demo ##在uri的schema协议部分为自定义的lb:类型，表示从微服务注册中心（如Eureka）订阅服务，并且进行服务的路由
+          predicates: ##注意谓词下面的横杠
+          - Path=/consumer/**
+          filters: 
+          - StripPrefix=1 #去掉Path前缀,参数为1代表去掉/consumer
+
+#eureka client 配置
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:9000/eureka/
+  instance:
+    hostname: localhost

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: eureka-server-demo
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: wangliang
+Implementation-Vendor-Id: com.csdn.cloud
+Build-Jdk: 1.8.0_172
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/springcloud-demo/eureka-server-demo
+Created-By: Maven Integration for Eclipse
+

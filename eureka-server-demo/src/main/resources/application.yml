@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: eureka-server
+server:
+  port: 9000
+  
+eureka:
+  client: 
+    register-with-eureka: true  #false:不作为一个客户端注册到注册中心,是否将自身的实例信息注册到eureka服务器
+    fetch-registry: false      #是否从eurekaserver获取注册信息，单节点，无需从其他server获取
+    instance-info-replication-interval-seconds: 10 
+    registry-fetch-interval-seconds: 30  #从eureka服务端获取注册信息的间隔时间
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  instance:
+    hostname: localhost
